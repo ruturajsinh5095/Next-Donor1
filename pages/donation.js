@@ -164,10 +164,9 @@ export default function Donation(users) {
             }) 
           )
         }, []);
-
-
-      const DataforGrid = [{
-        {
+       
+    const DataforGrid = [{
+      {
           
           Donor: "Zecob",
           Amount: "123",
@@ -184,8 +183,10 @@ export default function Donation(users) {
           Fund: "General Fund",
           Status1:"Paid",
           Date:"2022-12-13"
-        }
-       }]
+        },
+      }]
+
+      
       
 
     return(
