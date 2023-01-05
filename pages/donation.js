@@ -165,7 +165,7 @@ export default function Donation(users) {
           )
         }, []);
        
-    const DataforGrid[] = [{
+    const DataforGrid = [{
       {
           Donor: "Zecob",
           Amount: "123",
