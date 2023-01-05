@@ -79,6 +79,69 @@ export default function Donation(users) {
       },
     ];
 
+   const columns  = [
+          {
+            id: 'Donor',
+            
+            Header: 'Donor',
+            filterFn: useDataGridFilter('string'),
+            size: 90,
+           
+          },
+          {
+            id: 'Amount',
+           
+            Header: 'Amount',
+            filterFn: useDataGridFilter('string'),
+            size: 70,
+           
+          },
+          {
+            id: 'Type',
+            
+            Header: 'Type',
+            filterFn: useDataGridFilter('string'),
+            size: 90,
+           
+          },
+          {
+            id: 'Fund',
+            
+            Header: 'Fund',
+            filterFn: useDataGridFilter('string'),
+            size: 90,
+            
+          },
+          {
+            id: 'Date',
+           
+            Header: 'Date',
+            size: 90,
+            filterFn: useDataGridFilter('date'),
+            meta: {
+              href: ({ _id }) => `#donation/${_id}`,
+             },
+            
+          },
+          {
+            id: 'Actions',
+           
+            Header: 'Actions',
+            enableGlobalFilter: false,
+            cell: (_id) => (
+              <>
+                <Box onClick={(e) => e.stopPropagation()}>
+                  <OverflowMenu size="xs">
+                  <MenuItem onClick={() => updateDonation(_id.cell.row.original._id)}>Edit</MenuItem>
+                    <MenuItem onClick={() => deleteDonation(_id.cell.row.original._id)}>Delete </MenuItem>
+                  </OverflowMenu>
+                </Box>
+              </>
+            ),
+            
+          },
+    ];
+
     const data1 = [];
     let length1 = (users.users).length;
     for(let i=0; i< length1;i++){
@@ -159,7 +222,22 @@ export default function Donation(users) {
                       <PageBody fullWidth>
                         <ActiveFiltersList />
                           <Box position="sticky" >
-                      
+                            <DataGrid 
+                                  styleConfig={{ color : '#2563eb' }}
+                                  instanceRef={gridRef}
+                                  columns={columns}
+                                  data={data1}
+                                  isSortable
+                                  isSelectable
+                                  isHoverable
+                                  onRowClick={onNextpage}
+                                  initialState={{
+                                    pagination: {
+                                      pageSize: 20,
+                                    }
+                                  }}
+                                >
+                                  <DataGridPagination />
                               
                           </Box>
                      
