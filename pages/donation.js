@@ -238,7 +238,7 @@ export default function Donation(users) {
                                   }}
                                 >
                                   <DataGridPagination />
-                              
+                              </DataGrid>
                           </Box>
                      
                       </PageBody>
