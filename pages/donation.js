@@ -142,8 +142,9 @@ export default function Donation(users) {
     ];
 
     const data1 = [];
-    console.log(users.users);
+   
     let length1 = (users.users).length;
+    console.log(length1);
     for(let i=0; i< length1;i++){
       data1.push(users.users[i]);
     }
