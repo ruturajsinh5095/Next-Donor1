@@ -29,6 +29,55 @@ export default function Donation(users) {
     ref.current.complete();
     
   },[]);
+  
+   const filters = [
+      {
+        id: 'Type',
+        label: 'Type',
+        type: 'enum',
+        icon: <FiCircle />,
+        items: [
+          {
+            id: 'Cash',
+            label: 'Cash',
+            value: 'Cash',
+            icon: <Badge boxSize="8px" borderRadius="full" bg="blue.400" />,
+          },
+          {
+            id: 'CreditCard',
+            label: 'CreditCard',
+            value: 'CreditCard',
+            icon: <Badge boxSize="8px" borderRadius="full" bg="green.400" />,
+          },
+          {
+            id: 'Payoneer',
+            label: 'Payoneer',
+            value: 'Payoneer',
+            icon: <Badge boxSize="8px" borderRadius="full" bg="red.400" />,
+          },
+        ],
+      },
+      {
+        id: 'Fund',
+        label: 'Fund',
+        type: 'enum',
+        icon: <RiRefund2Fill />,
+        items: [
+          {
+            id: 'General Fund',
+            label: 'General Fund',
+            value: 'General Fund',
+            icon: <Badge boxSize="8px" borderRadius="full" bg="blue.400" />,
+          },
+          {
+            id: 'Covid Relif Fund',
+            label: 'Covid Relif Fund',
+            value: 'Covid Relif Fund',
+            icon:  <Badge boxSize="8px" borderRadius="full" bg="green.400" />,
+          },
+        ],
+      },
+    ];
 
     const data1 = [];
     let length1 = (users.users).length;
@@ -36,7 +85,21 @@ export default function Donation(users) {
       data1.push(users.users[i]);
     }
 
+    console.log(data1);
 
+    const onFilter = React.useCallback((filters) => {
+          gridRef.current.setColumnFilters(
+            filters.map((filter) => {
+              return {
+                id: filter.id,
+                value: {
+                  value: filter.value,
+                  operator: filter.operator || 'is',
+                },
+              }
+            }) 
+          )
+        }, []);
       
 
     return(
@@ -69,7 +132,7 @@ export default function Donation(users) {
             }
           >
               
-        
+        <FiltersProvider filters={filters} onChange={onFilter} >
                   <Page height="400px" contentWidth="full" position="sticky"
                       title="Donation"
                       width="80vw"
@@ -84,7 +147,7 @@ export default function Donation(users) {
                               size="sm" 
                               width={"sm"}
                                /> */}
-                         
+                         <FiltersAddButton  />
                           <Link href="/adddonation"><Button
                             label="Add Donations"
                              backgroundColor={"#2563eb"} color={"white"} pointerEvents={"none"}
@@ -94,7 +157,7 @@ export default function Donation(users) {
                     >
                      
                       <PageBody fullWidth>
-                        
+                        <ActiveFiltersList />
                           <Box position="sticky" >
                       
                               
@@ -102,7 +165,7 @@ export default function Donation(users) {
                      
                       </PageBody>
                   </Page>
-             
+             </FiltersProvider>
           </AppShell>
         </HStack>
         </>
