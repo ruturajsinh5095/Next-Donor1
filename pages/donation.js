@@ -81,7 +81,7 @@ export default function Donation(users) {
 
    const columns  = [
           {
-            
+            id: 'Donor',
             accessorKey: 'Donor',
             Header: 'Donor',
             filterFn: useDataGridFilter('string'),
@@ -89,7 +89,7 @@ export default function Donation(users) {
            
           },
           {
-            
+            id: 'Amount',
             accessorKey: 'Amount',
             Header: 'Amount',
             filterFn: useDataGridFilter('string'),
@@ -97,15 +97,15 @@ export default function Donation(users) {
            
           },
           {
-            
-            accessorKey: 'Donor',
+            id: 'Type',
+            accessorKey: 'Type',
             Header: 'Type',
             filterFn: useDataGridFilter('string'),
             size: 90,
            
           },
           {
-           
+            id: 'Fund',
             accessorKey: 'Fund',
             Header: 'Fund',
             filterFn: useDataGridFilter('string'),
@@ -113,7 +113,7 @@ export default function Donation(users) {
             
           },
           {
-            
+            id: 'Date',
             accessorKey: 'Date',
             Header: 'Date',
             size: 90,
