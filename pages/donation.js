@@ -150,6 +150,15 @@ export default function Donation(users) {
 
     console.log(data1);
 
+  let onNextpage = (_id) => {
+      ref.current.continuousStart();
+      ref.current.complete();
+      router.push({
+        pathname: '/updatedonation',
+        query: {queryid : _id.original._id}
+     });
+    };
+
     const onFilter = React.useCallback((filters) => {
           gridRef.current.setColumnFilters(
             filters.map((filter) => {
