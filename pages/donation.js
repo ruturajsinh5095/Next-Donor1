@@ -88,6 +88,57 @@ export default function Donation(users) {
             size: 90,
            
           },
+          {
+            id: 'Amount',
+            accessorKey: 'Amount',
+            Header: 'Amount',
+            filterFn: useDataGridFilter('string'),
+            size: 70,
+
+          },
+          {
+            id: 'Type',
+            accessorKey: 'Type',
+            Header: 'Type',
+            filterFn: useDataGridFilter('string'),
+            size: 90,
+
+          },
+          {
+            id: 'Fund',
+            accessorKey: 'Fund',
+            Header: 'Fund',
+            filterFn: useDataGridFilter('string'),
+            size: 90,
+
+          },
+          {
+            id: 'Date',
+            accessorKey: 'Date',
+            Header: 'Date',
+            size: 90,
+            filterFn: useDataGridFilter('date'),
+            meta: {
+              href: ({ _id }) => `#donation/${_id}`,
+             },
+
+          },
+          {
+            id: 'Actions',
+            Header: 'Actions',
+            enableGlobalFilter: false,
+            cell: (_id) => (
+              <>
+                <Box onClick={(e) => e.stopPropagation()}>
+                  <OverflowMenu size="xs">
+                  <MenuItem>Edit</MenuItem>
+                    <MenuItem>Delete </MenuItem>
+                  </OverflowMenu>
+                </Box>
+              </>
+            ),
+
+          },
     ];
 
     const data1 = [];
