@@ -232,7 +232,7 @@ export default function Donation(users) {
                                   isSortable
                                   isSelectable
                                   isHoverable
-                                  }
+                                  
                                   initialState={{
                                     pagination: {
                                       pageSize: 20,
