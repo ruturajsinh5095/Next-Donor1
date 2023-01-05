@@ -109,23 +109,23 @@ export default function Donation(users) {
      });
     };
 
-//     let updateDonation = (_id) => {
-//       router.push({
-//         pathname: '/updatedonation',
-//         query: {queryid : _id}
-//       });
-//     };
+    let updateDonation = (_id) => {
+      router.push({
+        pathname: '/updatedonation',
+        query: {queryid : _id}
+      });
+    };
     
-//     let deleteDonation = async(_id) =>{
-//       fetch('/api/donation',{
-//         method: "DELETE",
-//         body: JSON.stringify({
-//           id: _id,
-//         }),
-//       }),
-//       router.push('/donation');
+    let deleteDonation = async(_id) =>{
+      fetch('/api/donation',{
+        method: "DELETE",
+        body: JSON.stringify({
+          id: _id,
+        }),
+      }),
+      router.push('/donation');
       
-//     }
+    }
 
     
 
@@ -172,6 +172,23 @@ export default function Donation(users) {
             meta: {
               href: ({ _id }) => `#donation/${_id}`,
              },
+            
+          },
+          {
+            id: 'Actions',
+            accessor: 'Actions',
+            Header: 'Actions',
+            enableGlobalFilter: false,
+            cell: (_id) => (
+              <>
+                <Box onClick={(e) => e.stopPropagation()}>
+                  <OverflowMenu size="xs">
+                  <MenuItem onClick={() => updateDonation(_id.cell.row.original._id)}>Edit</MenuItem>
+                    <MenuItem onClick={() => deleteDonation(_id.cell.row.original._id)}>Delete </MenuItem>
+                  </OverflowMenu>
+                </Box>
+              </>
+            ),
             
           },
           
