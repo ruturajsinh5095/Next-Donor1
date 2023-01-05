@@ -22,21 +22,7 @@ export default function Donation(users) {
   const gridRef = useRef();
   const ref = useRef(null);
   const [donationid, setId] = useState("");
-  const [Searchvalue, setSearchvalue] = React.useState('');
-  const [SearchResultShow, setSearchResultShow] = React.useState(false);
 
-  let setSearchvalue1 = async () => {
-    let res = await fetch("http://localhost:3000/api/search", {
-      method: "POST",
-      body: JSON.stringify({
-        Searchvalue: Searchvalue,
-      }),
-    });
-    
-    const SearchResult = res.data;
-    return SearchResult
-    
-  };
 
   useEffect(() => {
     ref.current.continuousStart();
@@ -44,61 +30,12 @@ export default function Donation(users) {
     
   },[]);
 
-  // setSearchvalue1().then((r)=> console.log(r));
-  const filters = [
-      {
-        id: 'Type',
-        label: 'Type',
-        type: 'enum',
-        icon: <FiCircle />,
-        items: [
-          {
-            id: 'Cash',
-            label: 'Cash',
-            value: 'Cash',
-            icon: <Badge boxSize="8px" borderRadius="full" bg="blue.400" />,
-          },
-          {
-            id: 'CreditCard',
-            label: 'CreditCard',
-            value: 'CreditCard',
-            icon: <Badge boxSize="8px" borderRadius="full" bg="green.400" />,
-          },
-          {
-            id: 'Payoneer',
-            label: 'Payoneer',
-            value: 'Payoneer',
-            icon: <Badge boxSize="8px" borderRadius="full" bg="red.400" />,
-          },
-        ],
-      },
-      {
-        id: 'Fund',
-        label: 'Fund',
-        type: 'enum',
-        icon: <RiRefund2Fill />,
-        items: [
-          {
-            id: 'General Fund',
-            label: 'General Fund',
-            value: 'General Fund',
-            icon: <Badge boxSize="8px" borderRadius="full" bg="blue.400" />,
-          },
-          {
-            id: 'Covid Relif Fund',
-            label: 'Covid Relif Fund',
-            value: 'Covid Relif Fund',
-            icon:  <Badge boxSize="8px" borderRadius="full" bg="green.400" />,
-          },
-        ],
-      },
-    ];
     const data1 = [];
     let length1 = (users.users).length;
     for(let i=0; i< length1;i++){
       data1.push(users.users[i]);
     }
-    const Donor_id = data1[0].Donor_id;
+    
 
     let onNextpage = (_id) => {
       ref.current.continuousStart();
@@ -129,7 +66,7 @@ export default function Donation(users) {
 
     
 
-    const defaultFilters = [{ id: 'type', operator: 'is', value: 'All' }]
+   
     const columns  = [
           {
             id: 'Donor',
@@ -194,27 +131,6 @@ export default function Donation(users) {
           
     ];
 
-    const onFilter = React.useCallback((filters) => {
-      gridRef.current.setColumnFilters(
-        filters.map((filter) => {
-          return {
-            id: filter.id,
-            value: {
-              value: filter.value,
-              operator: filter.operator || 'is',
-            },
-          }
-        }) 
-      )
-    }, []);
-
-    const [type, setType] = React.useState('new');
-
-      const filteredData = React.useMemo(() => {
-        return data1.filter((row) => {
-          return row.type === type
-        })
-      }, [type])  
 
       
 
@@ -247,7 +163,7 @@ export default function Donation(users) {
               </Sidebar>
             }
           >
-              <FiltersProvider filters={filters} onChange={onFilter} >
+              
         
                   <Page height="400px" contentWidth="full" position="sticky"
                       title="Donation"
@@ -263,7 +179,7 @@ export default function Donation(users) {
                               size="sm" 
                               width={"sm"}
                                /> */}
-                          <FiltersAddButton  />
+                         
                           <Link href="/adddonation"><Button
                             label="Add Donations"
                              backgroundColor={"#2563eb"} color={"white"} pointerEvents={"none"}
@@ -273,7 +189,7 @@ export default function Donation(users) {
                     >
                      
                       <PageBody fullWidth>
-                        <ActiveFiltersList />
+                        
                           <Box position="sticky" >
                       
                                 <DataGrid 
@@ -297,7 +213,7 @@ export default function Donation(users) {
                      
                       </PageBody>
                   </Page>
-              </FiltersProvider>
+             
           </AppShell>
         </HStack>
         </>
