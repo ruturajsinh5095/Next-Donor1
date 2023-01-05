@@ -142,9 +142,7 @@ export default function Donation(users) {
     ];
 
     const data1 = [];
-   
     let length1 = (users.users).length;
-    console.log(length1);
     for(let i=0; i< length1;i++){
       data1.push(users.users[i]);
     }
@@ -229,7 +227,7 @@ export default function Donation(users) {
                                   styleConfig={{ color : '#2563eb' }}
                                   instanceRef={gridRef}
                                   columns={columns}
-                                  
+                                  data={data1}
                                   isSortable
                                   isSelectable
                                   isHoverable
