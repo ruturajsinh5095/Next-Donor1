@@ -132,8 +132,8 @@ export default function Donation(users) {
               <>
                 <Box onClick={(e) => e.stopPropagation()}>
                   <OverflowMenu size="xs">
-                  <MenuItem onClick={() => updateDonation(_id.cell.row.original._id)}>Edit</MenuItem>
-                    <MenuItem onClick={() => deleteDonation(_id.cell.row.original._id)}>Delete </MenuItem>
+                  <MenuItem>Edit</MenuItem>
+                    <MenuItem>Delete </MenuItem>
                   </OverflowMenu>
                 </Box>
               </>
@@ -150,14 +150,7 @@ export default function Donation(users) {
 
     console.log(data1);
 
-  let onNextpage = (_id) => {
-      ref.current.continuousStart();
-      ref.current.complete();
-      router.push({
-        pathname: '/updatedonation',
-        query: {queryid : _id.original._id}
-     });
-    };
+  
 
     const onFilter = React.useCallback((filters) => {
           gridRef.current.setColumnFilters(
@@ -239,7 +232,7 @@ export default function Donation(users) {
                                   isSortable
                                   isSelectable
                                   isHoverable
-                                  onRowClick={onNextpage}
+                                  }
                                   initialState={{
                                     pagination: {
                                       pageSize: 20,
