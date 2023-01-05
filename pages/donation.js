@@ -165,9 +165,8 @@ export default function Donation(users) {
           )
         }, []);
        
-    const DataforGrid = [{
+    const DataforGrid[] = [{
       {
-          
           Donor: "Zecob",
           Amount: "123",
           Type: "Cash",
@@ -176,14 +175,13 @@ export default function Donation(users) {
           Date:"2022-12-13"
         },
         {
-          
           Donor: "Zecob",
           Amount: "123",
           Type: "Cash",
           Fund: "General Fund",
           Status1:"Paid",
           Date:"2022-12-13"
-        },
+        }
       }]
 
       
