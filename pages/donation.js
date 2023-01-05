@@ -164,6 +164,29 @@ export default function Donation(users) {
             }) 
           )
         }, []);
+
+
+      const DataforGrid = [
+        {
+          
+          Donor: "Zecob",
+          Amount: "123",
+          Type: "Cash",
+          Fund: "General Fund",
+          Status1:"Paid",
+          Date:"2022-12-13"
+        },
+        {
+          
+          Donor: "Zecob",
+          Amount: "123",
+          Type: "Cash",
+          Fund: "General Fund",
+          Status1:"Paid",
+          Date:"2022-12-13"
+        },
+        
+      ]
       
 
     return(
@@ -227,7 +250,7 @@ export default function Donation(users) {
                                   styleConfig={{ color : '#2563eb' }}
                                   instanceRef={gridRef}
                                   columns={columns}
-                                  data={data1}
+                                  data={DataforGrid}
                                   isSortable
                                   isSelectable
                                   isHoverable
