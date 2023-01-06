@@ -223,7 +223,6 @@ export default function Donation(users) {
                         <ActiveFiltersList />
                           <Box position="sticky" >
                             <DataGrid 
-                                  styleConfig={{ color : '#2563eb' }}
                                   instanceRef={gridRef}
                                   columns={columns}
                                   data={data1}
