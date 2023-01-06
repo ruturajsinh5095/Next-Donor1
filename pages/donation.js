@@ -27,7 +27,6 @@ export default function Donation(users) {
  useEffect(() => {
     ref.current.continuousStart();
     ref.current.complete();
-    
   },[]);
   
    const filters = [
