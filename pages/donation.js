@@ -165,43 +165,6 @@ export default function Donation(users) {
           )
         }, []);
        
-    
-
-      
-      
-interface ExampleData {
-  id: string
-  name: string
-  email: string
-}
-
-const columns: Column<ExampleData>[] = [
-  {
-    accessorKey: 'id',
-    header: 'Id',
-  },
-  {
-    accessorKey: 'name',
-    header: 'Name',
-  },
-  {
-    accessorKey: 'email',
-    header: 'Email',
-  },
-]
-
-const data: ExampleData[] = [{
-  {
-    id: 1,
-    name: 'TaShya Charles',
-    email: 'urna.nec.luctus@icloud.couk'
-  },
-  {
-    id: 2,
-    name: 'Donovan Mosley',
-    email: 'lacinia.mattis.integer@icloud.couk',
-  },
-}]
 return(
       <>
 <DataGrid<ExampleData> columns={columns} data={data} />
