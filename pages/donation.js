@@ -164,12 +164,7 @@ export default function Donation(users) {
             }) 
           )
         }, []);
-       
-return(
-      <>
-<DataGrid<ExampleData> columns={columns} data={data} />
-</>
-);
+
     return(
       <>
       <LoadingBar color="#2563eb" ref={ref} />
