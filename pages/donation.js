@@ -21,23 +21,14 @@ export default function Donation(users) {
   const router = useRouter();
   const gridRef = useRef();
   const ref = useRef(null);
-  const [donationData, setData] = useState("");
   const [donationid, setId] = useState("");
 
 
  useEffect(() => {
     ref.current.continuousStart();
-    fetch('/api/donation',{
-      method: "GET",
-    })
-    .then((res) => res.json())
-    .then((res) => setData(res));
-
-
     ref.current.complete();
     
   },[]);
-  console.log(donationData.data);
   
    const filters = [
       {
@@ -151,7 +142,7 @@ export default function Donation(users) {
     ];
 
    const data1 = [];
-    let length1 = (donationData.data).length;
+    let length1 = (users.users).length;
     for(let i=0; i< length1;i++){
       data1.push(users.users[i]);
     }
