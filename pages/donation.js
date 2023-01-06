@@ -285,7 +285,7 @@ return(
                                   styleConfig={{ color : '#2563eb' }}
                                   instanceRef={gridRef}
                                   columns={columns}
-                                  data={DataforGrid}
+                                  data={data1}
                                   isSortable
                                   isSelectable
                                   isHoverable
